@@ -7,10 +7,10 @@ import "./style.scss";
 
 const Select = ({
   selection,
-  onChange,
-  name,
-  titleEmpty,
-  label,
+  onChange = () => null,
+  name = "select",
+  titleEmpty = false,
+  label = "",
   type = "normal",
 }) => {
   const [value, setValue] = useState();
@@ -88,14 +88,6 @@ Select.propTypes = {
   titleEmpty: PropTypes.bool,
   label: PropTypes.string,
   type: PropTypes.string,
-}
-
-Select.defaultProps = {
-  onChange: () => null,
-  titleEmpty: false,
-  label: "",
-  type: "normal",
-  name: "select",
 }
 
 export default Select;

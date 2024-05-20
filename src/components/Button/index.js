@@ -7,7 +7,13 @@ export const BUTTON_TYPES = {
   SUBMIT: 2,
 };
 
-const Button = ({ title, onClick, type, disabled, children }) => {
+const Button = ({ 
+  title = "", 
+  onClick = () => null, 
+  type = BUTTON_TYPES.DEFAULT, 
+  disabled = false, 
+  children = null
+}) => {
   switch (type) {
     case BUTTON_TYPES.DEFAULT:
       return (
@@ -58,12 +64,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
 };
-Button.defaultProps = {
-  disabled: false,
-  onClick: () => null,
-  type: BUTTON_TYPES.DEFAULT,
-  title: "",
-  children: null
-}
 
 export default Button;
