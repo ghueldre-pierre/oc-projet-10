@@ -58,6 +58,7 @@ const Select = ({
             e.preventDefault();
             setCollapsed(!collapsed);
           }}
+          aria-label="Voir la liste des catégories"
         >
           <Arrow />
         </button>
