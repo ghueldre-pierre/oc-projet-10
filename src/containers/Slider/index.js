@@ -16,7 +16,9 @@ const Slider = () => {
       5000
     );
   };
+  
   useEffect(() => {
+    if(! byDateDesc) return;
     nextCard();
   });
   return (
