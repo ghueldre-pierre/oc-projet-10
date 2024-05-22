@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useData } from "../../contexts/DataContext";
 import { getMonth } from "../../helpers/Date";
 
@@ -7,9 +7,11 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
-  );
+  const byDateDesc = useMemo(() => (
+    data?.focus.sort((evtA, evtB) => (
+      new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    ))
+  ), [data]);
   const nextCard = () => {
     setTimeout(
       () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
@@ -18,7 +20,7 @@ const Slider = () => {
   };
   
   useEffect(() => {
-    if(! byDateDesc) return;
+    if(!byDateDesc) return;
     nextCard();
   });
   return (
