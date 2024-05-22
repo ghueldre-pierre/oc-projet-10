@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
@@ -12,15 +14,14 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
-import { useMemo } from "react";
 
 const Page = () => {
   const {data} = useData();
   const last = useMemo(() => {
-    if(! data) return;
-    const lastEvent = data["events"].reduce((previousEvent, currentEvent) => {
-      const previousEventDate = new Date(previousEvent["date"]);
-      const currentEventDate = new Date(currentEvent["date"]);
+    if(! data) return {};
+    const lastEvent = data.events.reduce((previousEvent, currentEvent) => {
+      const previousEventDate = new Date(previousEvent.date);
+      const currentEventDate = new Date(currentEvent.date);
       return currentEventDate > previousEventDate ? currentEvent : previousEvent;
     });
     return lastEvent;
@@ -141,16 +142,16 @@ const Page = () => {
         <div>01 23 45 67 89</div>
         <div>contact@724events.com</div>
         <div>
-          <a href="#twitch">
+          <a href="#twitch" aria-label="twitch">
             <Icon name="twitch" />
           </a>
-          <a href="#facebook">
+          <a href="#facebook" aria-label="facebook">
             <Icon name="facebook" />
           </a>
-          <a href="#twitter">
+          <a href="#twitter" aria-label="twitter">
             <Icon name="twitter" />
           </a>
-          <a href="#youtube">
+          <a href="#youtube" aria-label="youtube">
             <Icon name="youtube" />
           </a>
         </div>
