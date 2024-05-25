@@ -8,7 +8,7 @@ const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 500)
 
 const Form = ({ 
   onSuccess = () => null, 
-  onError = () => null
+  onError = (error) => error
 }) => {
   const [sending, setSending] = useState(false);
   const sendContact = useCallback(
@@ -19,6 +19,7 @@ const Form = ({
       try {
         await mockContactApi();
         setSending(false);
+        onSuccess();
       } catch (err) {
         setSending(false);
         onError(err);
