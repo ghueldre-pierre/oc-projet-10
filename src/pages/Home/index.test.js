@@ -52,8 +52,20 @@ describe("When a page is created", () => {
     render(<Home />);
     await screen.findByRole("contentinfo");
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(dataMock),
+      })
+    );
+    render(
+      <DataProvider>
+        <Home />
+      </DataProvider>
+    );
+    const footer = await screen.findByRole("contentinfo");
+    await within(footer).findByTestId("card-testid");
+    fetch.mockClear();
   })
 });
 
