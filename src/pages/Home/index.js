@@ -26,6 +26,7 @@ const Page = () => {
     });
     return lastEvent;
   }, [data]);
+  // console.log(data);
   return <>
     <header>
       <Menu />
@@ -63,7 +64,7 @@ const Page = () => {
           </ServiceCard>
         </div>
       </section>
-      <section className="EventsContainer" id="nos-realisations">
+      <section className="EventsContainer" id="nos-realisations" data-testid="nos-realisations">
         <h2 className="Title">Nos réalisations</h2>
         <EventList />
       </section>

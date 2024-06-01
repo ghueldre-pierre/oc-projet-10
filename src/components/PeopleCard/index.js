@@ -8,7 +8,7 @@ const PeopleCard = ({
   position, 
   name 
 }) => (
-    <div className="PeopleCard">
+    <div className="PeopleCard" data-testid="people-testid">
       <div className="PeopleCard__imageContainer">
         <img data-testid="card-image-testid" src={imageSrc} alt={imageAlt} />
       </div>
