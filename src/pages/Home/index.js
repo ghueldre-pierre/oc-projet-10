@@ -26,7 +26,6 @@ const Page = () => {
     });
     return lastEvent;
   }, [data]);
-  // console.log(data);
   return <>
     <header>
       <Menu />
