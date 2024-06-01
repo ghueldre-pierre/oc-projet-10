@@ -22,7 +22,7 @@ const Select = ({
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
-      {label && <div className="label">{label}</div>}
+      {label && <label className="label" htmlFor="collapse-selection-button" id="collapse-selection-button-label">{label}</label>}
       <div className="Select">
         <ul>
           <li className={collapsed ? "SelectTitle--show" : "SelectTitle--hide"}>
@@ -59,7 +59,8 @@ const Select = ({
             e.preventDefault();
             setCollapsed(!collapsed);
           }}
-          aria-label="Voir la liste des catégories"
+          id="collapse-selection-button"
+          aria-labelledby="collapse-selection-button-label"
         >
           <Arrow />
         </button>

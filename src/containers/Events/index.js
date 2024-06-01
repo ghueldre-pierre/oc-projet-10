@@ -45,6 +45,7 @@ const EventList = () => {
           <Select
             selection={Array.from(typeList)}
             onChange={(value) => (value ? changeType(value) : changeType(null))}
+            label="Filtrer par catégorie"
           />
           <div id="events" className="ListContainer">
             {filteredEvents.map((event) => (
