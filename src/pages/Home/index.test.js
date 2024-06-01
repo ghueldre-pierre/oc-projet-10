@@ -43,7 +43,11 @@ describe("When a page is created", () => {
     await screen.findAllByTestId("people-testid");
   })
   it("a footer is displayed", () => {
-    // to implement
+    // https://stackoverflow.com/a/54250578
+    const { container } = render(<Home />);
+    const footerElement = container.querySelector("footer");
+    // https://github.com/testing-library/jest-dom?tab=readme-ov-file#table-of-contents
+    expect(footerElement).toBeInTheDocument();
   })
   it("an event card, with the last event, is displayed", () => {
     // to implement
